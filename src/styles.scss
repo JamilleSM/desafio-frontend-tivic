@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@use './app/shared/utils/_table';
+@use './app/shared/utils/_button';
+@use "tailwindcss/base";
+@use "tailwindcss/components";
+@use "tailwindcss/utilities";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body { 
+  height: 100%; 
+  width: 100%;
+}
+
+body { 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background-color: #F0F4FC;
+}
