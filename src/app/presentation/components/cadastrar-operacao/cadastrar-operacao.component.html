@@ -1,0 +1,63 @@
+<section>
+  <h2 mat-dialog-title>
+    Cadastrar nova operação
+    <mat-icon (click)="closeModal()">close</mat-icon>
+  </h2>
+
+  <form [formGroup]="formGroup">
+    <mat-dialog-content>
+      <div class="container-inputs">
+        <div class="input-container">
+          <label>Data inicio<span>*</span></label>
+          <input type="Date" formControlName="dataInicio" />
+        </div>
+        <div class="input-container">
+          <label>Data final<span>*</span></label>
+          <input type="Date" formControlName="dataFinal" />
+        </div>
+        <div class="input-container">
+          <label>Local<span>*</span></label>
+          <input type="text" placeholder="Ex: BR 122" formControlName="local" />
+        </div>
+      </div>
+      <div class="container-inputs">
+        <div class="input-container input-wrapper">
+          <label>Nome do responsável<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: Anna Beatriz"
+            formControlName="nomeResponsavel"
+          />
+        </div>
+        <div class="input-container">
+          <label>Status<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Selecione o status"
+            formControlName="status"
+          />
+        </div>
+      </div>
+      <div class="input-container">
+        <label>Observações</label>
+        <textarea
+          cols="20"
+          rows="8"
+          placeholder="Digite alguma observação se tiver"
+          formControlName="observacoes"
+        ></textarea>
+      </div>
+      <div class="search-wrapper">
+        <div class="input-container">
+          <label>Pesquisar abordagens</label>
+          <input type="text" placeholder="Ex: ABC-1234" />
+        </div>
+
+        <button type="button" class="btn-primary" (click)="openModal()">
+          <mat-icon>add</mat-icon>
+          Abordagem
+        </button>
+      </div>
+    </mat-dialog-content>
+  </form>
+</section>

@@ -1,0 +1,54 @@
+<section>
+  <h2 mat-dialog-title>
+    Cadastrar de abordagem
+    <mat-icon (click)="closeModal()">close</mat-icon>
+  </h2>
+
+  <form [formGroup]="formGroup">
+    <mat-dialog-content>
+      <div class="container-inputs">
+        <div class="input-container">
+          <label>Teste bafômetro<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Selecione um"
+            formControlName="testeBafometro"
+          />
+        </div>
+        <div class="input-container">
+          <label>Nível de álcool<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: 0,8"
+            formControlName="nivelAlcool"
+          />
+        </div>
+      </div>
+      <div class="container-inputs">
+        <div class="input-container">
+          <label>Valor da multa<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: R$ 300,00"
+            formControlName="valorMulta"
+          />
+        </div>
+        <div class="input-container">
+          <label>Data recolhimento<span>*</span></label>
+          <input type="Date" formControlName="dataRecolhimento" />
+        </div>
+      </div>
+      <div class="veiculo-wrapper">
+        <div class="input-container">
+          <label>Veículo</label>
+          <input type="text" placeholder="Selecione um veículo" />
+        </div>
+
+        <span>
+          <mat-icon>add</mat-icon>
+          Adicionar novo veículo
+        </span>
+      </div>
+    </mat-dialog-content>
+  </form>
+</section>

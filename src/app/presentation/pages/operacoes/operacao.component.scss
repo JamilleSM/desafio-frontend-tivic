@@ -3,7 +3,7 @@ main {
     height: 100%;
     padding: 12px 24px;
 
-    .container {
+    .container-operacao {
         background-color: #fff;
         border-radius: 8px;
         border: 1px solid #E0E0E0;
@@ -23,6 +23,7 @@ main {
 
                 h1 {
                     font-size: 28px;
+                    margin-left: 12px;
                 }
 
                 p {
