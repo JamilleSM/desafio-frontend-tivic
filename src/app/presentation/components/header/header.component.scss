@@ -1,0 +1,58 @@
+header {
+    .container-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff;
+        padding: 16px;
+
+        mat-icon {
+            color: #344054;
+            cursor: pointer;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .menu-icon {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            .search-icon {
+                position: relative;
+    
+                input {
+                    background-color: #F8F9FB;
+                    color: #000;
+                    padding: 8px;
+                    border-radius: 14px;
+                    padding-left: 36px;
+                    width: 340px;
+                    font-size: 14px;
+    
+                    &::placeholder {
+                        color: #6D7580;
+                    }
+    
+                    &:focus {
+                        outline: none;
+                    }
+                }
+    
+                mat-icon {
+                    position: absolute;
+                    top: 8px;
+                    left: 8px;
+                    color: #6D7580;
+                    font-size: 21px;
+                    height: 21px;
+                    width: 21px;
+                }
+            }
+        }
+    }
+}

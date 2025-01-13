@@ -1,10 +1,10 @@
 export interface Operacao {
-    idOperacao?: number,
-    nomeResponsavel?: string,
-    dataInicio?: Date,
-    dataFinal?: Date,
-    local?: string,
-    status?: string, // exemplo: "Em andamento", "Concluída"
-    observacoes?: string,
+    id: string,
+    nomeResponsavel: string,
+    dataInicio: Date,
+    dataFinal: Date,
+    local: string,
+    status: string, // exemplo: "Em andamento", "Concluída"
+    observacoes: string,
   }
   

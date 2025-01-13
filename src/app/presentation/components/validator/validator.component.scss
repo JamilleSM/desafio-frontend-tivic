@@ -1,0 +1,25 @@
+:host {
+    .error-message {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        background-color: #FEEFEF;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        
+        p {
+          margin: 0;
+          font-size: 10px;
+          font-weight: 400;
+          color: #DA1414;
+        }
+    
+        mat-icon {
+          width: 10px;
+          height: 10px;
+          font-size: 10px;
+          color: #DA1414;
+        }
+    }   
+}

@@ -1,12 +1,12 @@
 export class Abordagem {
     constructor(
-      public id_abordagem: number,
-      public id_veiculo: number,
-      public id_operacao: number,
-      public teste_bafometro: string,
-      public nivel_alccolemia: string,
-      public data_recolhimento: Date,
-      public valor_multa: number,
+      public idAbordagem: number,
+      public idVeiculo: number,
+      public idOperacao: number,
+      public testeBafometro: string,
+      public nivelAlcool: string,
+      public dataRecolhimento: Date,
+      public valorMulta: number,
     ) {}
   }
   

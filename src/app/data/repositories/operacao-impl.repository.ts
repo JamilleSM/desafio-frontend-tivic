@@ -13,6 +13,14 @@ export class OperacoesRepositoryImpl implements OperacoesRepository {
   }
 
   async setOperacao(operacao: Operacao): Promise<void> {
-    await lastValueFrom(this.dataSource.saveOperacao(operacao));
+    await lastValueFrom(this.dataSource.setOperacao(operacao));
+  }
+
+  async updateOperacao(id: string, operacao: Operacao): Promise<void> {
+    await lastValueFrom(this.dataSource.updateOperacao(id, operacao));
+  }
+
+  async deleteOperacao(id: string): Promise<void> {
+    await lastValueFrom(this.dataSource.deleteOperacao(id));
   }
 }

@@ -1,0 +1,9 @@
+<ng-container>
+  @if(control && control.invalid && (control.dirty || control.touched)) { @if
+  (control.hasError('required')) {
+  <div class="error-message">
+    <mat-icon>error</mat-icon>
+    <p>O campo é obrigatório</p>
+  </div>
+  } }
+</ng-container>

@@ -1,43 +1,42 @@
 section {
     border-radius: 12px;
 
-    h2 {
+    .header-modal {
         display: flex;
         align-items: center;
-        font-size: 24px;
-        font-weight: 700;
-        color: 313131;
+        justify-content: space-between;
         border-bottom: 1px solid #E9E9E9;
+        margin-bottom: 22px;
+        margin-top: 22px;
 
-        mat-icon {
-            margin-left: 184px;
-            color: #626262;
-            width: 22px;
-            height: 22px;
-            font-size: 22px;
-            cursor: pointer;
+        p {
+            font-size: 24px;
+            font-weight: 700;
+            color: #313131;
+    
+            mat-icon {
+                color: #626262;
+                width: 22px;
+                height: 22px;
+                font-size: 22px;
+                cursor: pointer;
+            }
         }
     }
 
     .container-inputs {
         display: flex;
-
-        .content-input {
-            width: 300px;
-        }
-
-        .input-wrapper {
-            width: 298px;
-        }
     }
 
     .search-wrapper {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border-top: 1px solid #E9E9E9;
+        margin-top: 24px;
 
         input {
-            width: 340px;
+            width: 100%;
         }
 
         button {
@@ -51,5 +50,23 @@ section {
                 font-size: 16px;
             }
         }
+
+        .icon-search {
+            position: relative;
+
+            mat-icon {
+                position: absolute;
+                right: 4px;
+                top: 6px;
+                color: #667085;
+            }
+        }
+    }
+
+    .content-button {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: 24px;
     }
 }

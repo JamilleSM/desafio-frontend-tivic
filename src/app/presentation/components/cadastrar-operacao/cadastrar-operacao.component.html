@@ -1,23 +1,30 @@
 <section>
-  <h2 mat-dialog-title>
-    Cadastrar nova operação
+  <div mat-dialog-title class="header-modal">
+    <p>{{ isUpdate ? "Atualizar operação" : "Cadastrar nova operação" }}</p>
     <mat-icon (click)="closeModal()">close</mat-icon>
-  </h2>
+  </div>
 
-  <form [formGroup]="formGroup">
-    <mat-dialog-content>
+  <mat-dialog-content>
+    <form [formGroup]="formGroup">
       <div class="container-inputs">
         <div class="input-container">
           <label>Data inicio<span>*</span></label>
           <input type="Date" formControlName="dataInicio" />
+          <validator controlName="dataInicio"></validator>
         </div>
         <div class="input-container">
           <label>Data final<span>*</span></label>
           <input type="Date" formControlName="dataFinal" />
+          <validator controlName="dataFinal"></validator>
         </div>
         <div class="input-container">
-          <label>Local<span>*</span></label>
-          <input type="text" placeholder="Ex: BR 122" formControlName="local" />
+          <label>Status<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Selecione o status"
+            formControlName="status"
+          />
+          <validator controlName="status"></validator>
         </div>
       </div>
       <div class="container-inputs">
@@ -28,14 +35,12 @@
             placeholder="Ex: Anna Beatriz"
             formControlName="nomeResponsavel"
           />
+          <validator controlName="nomeResponsavel"></validator>
         </div>
         <div class="input-container">
-          <label>Status<span>*</span></label>
-          <input
-            type="text"
-            placeholder="Selecione o status"
-            formControlName="status"
-          />
+          <label>Local<span>*</span></label>
+          <input type="text" placeholder="Ex: BR 122" formControlName="local" />
+          <validator controlName="local"></validator>
         </div>
       </div>
       <div class="input-container">
@@ -50,7 +55,10 @@
       <div class="search-wrapper">
         <div class="input-container">
           <label>Pesquisar abordagens</label>
-          <input type="text" placeholder="Ex: ABC-1234" />
+          <div class="icon-search">
+            <input type="text" placeholder="Ex: ABC-1234" />
+            <mat-icon>search</mat-icon>
+          </div>
         </div>
 
         <button type="button" class="btn-primary" (click)="openModal()">
@@ -58,6 +66,58 @@
           Abordagem
         </button>
       </div>
-    </mat-dialog-content>
-  </form>
+
+      <div class="container-abordagens">
+        <table class="table table-auto w-full text-sm border-spacing-2">
+          <thead>
+            <tr class="text-left align-middle">
+              <th>
+                <div class="title-icon">
+                  <p>Nível de álcool</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Valor da multa</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Data recolhimento</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Placa do veículo</p>
+                </div>
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (abordagem of abordagens; track abordagem) {
+            <tr class="text-left align-middle border-b border-gray-900">
+              <td>{{ abordagem.nivelAlcool }} mg/L</td>
+              <td>{{ abordagem.valorMulta }}</td>
+              <td>{{ abordagem.dataRecolhimento | date : "dd/MM/yyyy" }}</td>
+              <td>ABC-1234</td>
+              <td>
+                <mat-icon>edit</mat-icon>
+                <mat-icon>delete</mat-icon>
+              </td>
+            </tr>
+            } @empty {
+            <p>Sem abordagens registradas no momento!</p>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-button">
+        <button type="button" class="btn-primary" (click)="submitForm()">
+          {{ isUpdate ? "Atualizar" : "Cadastrar" }}
+        </button>
+      </div>
+    </form>
+  </mat-dialog-content>
 </section>

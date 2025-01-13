@@ -1,6 +1,6 @@
 export class Operacao {
     constructor(
-      public idOperacao: number,
+      public id: string,
       public nomeResponsavel: string,
       public dataInicio: Date,
       public dataFinal: Date,

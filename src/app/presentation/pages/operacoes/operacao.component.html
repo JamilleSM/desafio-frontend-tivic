@@ -1,100 +1,154 @@
 <main>
-  <div class="container-operacao">
-    <div class="section-options">
-      <div class="section-text">
-        <h1>Operações</h1>
-        <p>Registro de operações</p>
-      </div>
-      <div class="section-buttons">
-        <div class="search-icon">
-          <mat-icon>filter_list</mat-icon>
-          <p>Filters</p>
+  <app-header />
+  <div class="content-operacao">
+    <div class="container-operacao">
+      <div class="section-options">
+        <div class="section-text">
+          <h1>Operações</h1>
+          <p>Registro de operações</p>
         </div>
+        <div class="section-buttons">
+          <form [formGroup]="filterForm">
+            <div class="search-icon" [matMenuTriggerFor]="menu">
+              <mat-icon>filter_list</mat-icon>
+              <p>Filtros</p>
+            </div>
 
-        <div class="search-icon">
-          <mat-icon>delete</mat-icon>
-          <p>Delete</p>
+            <mat-menu #menu="matMenu">
+              <input
+                type="text"
+                placeholder="Nome do responsável"
+                formControlName="nomeResponsavel"
+                mat-menu-item
+                (click)="$event.stopPropagation()"
+              />
+              <input
+                type="text"
+                formControlName="local"
+                placeholder="Local"
+                mat-menu-item
+                (click)="$event.stopPropagation()"
+              />
+              <input
+                type="text"
+                formControlName="dataInicio"
+                placeholder="Data ínicio"
+                mat-menu-item
+                onfocus="(this.type='date')"
+                onblur="(this.type= this.value ? 'date' : 'text')"
+                (click)="$event.stopPropagation()"
+              />
+              <input
+                type="text"
+                formControlName="dataFinal"
+                placeholder="Data final"
+                mat-menu-item
+                onfocus="(this.type='date')"
+                onblur="(this.type= this.value ? 'date' : 'text')"
+                (click)="$event.stopPropagation()"
+              />
+              <p
+                mat-menu-item
+                type="submit"
+                class="btn-primary"
+                (click)="applyFilters($event)"
+              >
+                Aplicar
+              </p>
+            </mat-menu>
+          </form>
+
+          <div class="search-icon">
+            <mat-icon>delete</mat-icon>
+            <p>Apagar</p>
+          </div>
+
+          <button type="button" class="btn-primary" (click)="openModal()">
+            <mat-icon>add</mat-icon>
+            Nova operação
+          </button>
         </div>
-
-        <button type="button" class="btn-primary" (click)="openModal()">
-          <mat-icon>add</mat-icon>
-          Nova operação
-        </button>
       </div>
-    </div>
 
-    <div class="table-container">
-      <table
-        class="table table-auto border-collapse border border-gray-200 w-full text-sm text-gray-800 border-spacing-2"
-      >
-        <thead>
-          <tr class="text-left align-middle">
-            <th style="padding-left: 12px">
-              <div class="check-icon">
-                <mat-icon>remove</mat-icon>
-              </div>
-            </th>
-            <th>
-              <div class="title-icon">
-                <p>Data ínicio</p>
-              </div>
-            </th>
-            <th>
-              <div class="title-icon">
-                <p>Data final</p>
-              </div>
-            </th>
-            <th>
-              <div class="title-icon">
-                <p>Local</p>
-              </div>
-            </th>
-            <th>
-              <div class="title-icon">
-                <p>Nome do responsável</p>
-              </div>
-            </th>
-            <th>
-              <div class="title-icon">
-                <p>Status</p>
-              </div>
-            </th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (operacao of operacoes; track operacao) {
-          <tr class="text-left align-middle border-b border-gray-900">
-            <td scope="row">
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  id="flexCheckChecked"
-                />
-              </div>
-            </td>
-            <td>{{ operacao.dataInicio }}</td>
-            <td>{{ operacao.dataFinal }}</td>
-            <td>{{ operacao.local }}</td>
-            <td>{{ operacao.nomeResponsavel }}</td>
-            <td>{{ operacao.status }}</td>
-            <td>
-              <div class="menu-icon" [matMenuTriggerFor]="menu">
-                <mat-icon>more_vert</mat-icon>
-              </div>
-              <mat-menu #menu="matMenu">
-                <button mat-menu-item>Alterar</button>
-                <button mat-menu-item>Apagar</button>
-                <button mat-menu-item>Ver comentários</button>
-              </mat-menu>
-            </td>
-          </tr>
-          } @empty {
-          <p>Sem operações registradas no momento!</p>
-          }
-        </tbody>
-      </table>
+      <div class="table-container">
+        <table
+          class="table table-auto border-collapse border border-gray-300 w-full text-sm text-gray-800 border-spacing-2"
+        >
+          <thead>
+            <tr class="text-left align-middle">
+              <th style="padding-left: 12px">
+                <div class="check-icon">
+                  <mat-icon>remove</mat-icon>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Data ínicio</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Data final</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Local</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Nome do responsável</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Status</p>
+                </div>
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (operacao of filteresOperacoes; track operacao) {
+            <tr class="text-left align-middle border-b border-gray-900">
+              <td scope="row">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="flexCheckChecked"
+                  />
+                </div>
+              </td>
+              <td>{{ operacao.dataInicio | date : "dd/MM/yyyy" }}</td>
+              <td>{{ operacao.dataFinal | date : "dd/MM/yyyy" }}</td>
+              <td>{{ operacao.local }}</td>
+              <td>{{ operacao.nomeResponsavel }}</td>
+              <td>{{ operacao.status }}</td>
+              <td>
+                <div class="menu-icon" [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </div>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="atualizarModal(operacao)">
+                    Alterar
+                  </button>
+                  <button mat-menu-item (click)="deleteOperacao(operacao)">
+                    Apagar
+                  </button>
+                  <button mat-menu-item (click)="openModalComentario()">
+                    Ver comentários
+                  </button>
+                </mat-menu>
+              </td>
+            </tr>
+            } @empty {
+            <p>Sem operações registradas no momento!</p>
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </main>

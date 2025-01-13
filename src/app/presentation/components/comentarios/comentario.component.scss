@@ -1,0 +1,20 @@
+section {
+    h2 {
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        font-weight: 700;
+        color: 313131;
+        border-bottom: 1px solid #E9E9E9;
+        margin-bottom: 24px;
+
+        mat-icon {
+            margin-left: 184px;
+            color: #626262;
+            width: 22px;
+            height: 22px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+    }
+}

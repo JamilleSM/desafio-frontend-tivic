@@ -19,3 +19,56 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif; 
   background-color: #F0F4FC;
 }
+
+::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+::-webkit-datetime-edit {
+  color: #6D7580;
+}
+
+.mat-mdc-menu-content {
+  background-color: #fff;
+  color: #6D7580;
+  padding: 8px 12px !important;
+
+  input {
+    @apply border-solid border border-gray-300 rounded-lg #{ !important };
+    padding: 8px;
+    width: 100%;
+    font-size: 14px;
+    color: #000;
+    margin: 8px 0;
+
+    &::placeholder {
+      color: #6D7580;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      margin-left: 26px;
+      cursor: pointer;
+    }
+
+    &::-webkit-datetime-edit {
+      color: #6D7580;
+    }
+  }
+
+  p {
+    background-color: #1F263E;
+    color: #FFF;
+    width: fit-content;
+    padding: 0 22px;
+    font-size: 14px;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    margin-top: 12px;
+    min-height: 35px;
+
+    &:hover {
+      background-color: #1F263E;
+    }
+  }
+}
