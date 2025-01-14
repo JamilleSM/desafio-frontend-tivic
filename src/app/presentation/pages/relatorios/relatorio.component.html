@@ -1,0 +1,111 @@
+<main class="mb-24">
+  <div class="dashboard">
+    <div class="container-dashboard">
+      <div class="dashboard-total">
+        <span>Total</span>
+        <h2>{{ operacoes.length }} <mat-icon>arrow_outward</mat-icon></h2>
+        <p>Operações registradas</p>
+        <button>
+          Ver mais
+          <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </div>
+
+      <div class="dashboard-total">
+        <span>Total</span>
+        <h2>{{ veiculos.length }} <mat-icon>arrow_outward</mat-icon></h2>
+        <p>Veículos registrados</p>
+        <button>
+          Ver mais
+          <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </div>
+
+      <div class="dashboard-total">
+        <span>Total</span>
+        <h2>{{ abordagens.length }} <mat-icon>arrow_outward</mat-icon></h2>
+        <p>Abordagens registradas</p>
+        <button>
+          Ver mais
+          <mat-icon>arrow_right_alt</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="container-dashboard">
+      <div class="content-dashboard">
+        <div class="text">
+          <h1>Últimas operações em andamento</h1>
+        </div>
+        <table
+          class="table table-auto w-full text-sm text-gray-800 border-spacing-2 overflow-scroll"
+        >
+          <thead>
+            <tr class="text-left align-middle">
+              <th>
+                <div class="title-icon">
+                  <p>Data</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Nome do responsável</p>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (operacao of operacoesAndamento; track operacao) {
+            <tr class="text-left align-middle border-b border-gray-900">
+              <td>
+                {{ operacao.dataInicio | date : "dd/MM/yyyy" }} -
+                {{ operacao.dataFinal | date : "dd/MM/yyyy" }}
+              </td>
+              <td>{{ operacao.nomeResponsavel }}</td>
+            </tr>
+            } @empty {
+            <p>Sem operações em andamento!</p>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-dashboard">
+        <div class="text">
+          <h1>Últimas operações concluídas</h1>
+        </div>
+        <table
+          class="table table-auto w-full text-sm text-gray-800 border-spacing-2"
+        >
+          <thead>
+            <tr class="text-left align-middle">
+              <th>
+                <div class="title-icon">
+                  <p>Data</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Nome do responsável</p>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (operacao of operacoesConcluidas; track operacao) {
+            <tr class="text-left align-middle border-b border-gray-900">
+              <td>
+                {{ operacao.dataInicio | date : "dd/MM/yyyy" }} -
+                {{ operacao.dataFinal | date : "dd/MM/yyyy" }}
+              </td>
+              <td>{{ operacao.nomeResponsavel }}</td>
+            </tr>
+            } @empty {
+            <p>Sem operações em andamento!</p>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

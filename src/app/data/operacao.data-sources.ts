@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Operacao } from '../core/entities/operacao.entity';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class OperacoesDataSource {
   private apiUrl = 'http://localhost:3000/';
-
-  constructor(private http: HttpClient) {}
+  http = inject(HttpClient);
 
   getOperacoes(): Observable<Operacao[]> {
     return this.http.get<Operacao[]>(`${this.apiUrl}operacao`);

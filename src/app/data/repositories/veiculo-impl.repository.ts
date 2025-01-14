@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { Veiculo } from '../../core/entities/veiculo.entity';
 import { VeiculoRepository } from '../../domain/repositories/veiculo.repository';
@@ -6,7 +6,7 @@ import { VeiculoDataSource } from '../veiculo.data-sources';
 
 @Injectable({ providedIn: 'root' })
 export class VeiculoRepositoryImpl implements VeiculoRepository {
-  constructor(private dataSource: VeiculoDataSource) {}
+  dataSource = inject(VeiculoDataSource);
 
   async getVeiculo(): Promise<Veiculo[]> {
     return lastValueFrom(this.dataSource.getVeiculo());

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { Abordagem } from '../../core/entities/abordagem.entity';
 import { AbordagemRepository } from '../../domain/repositories/abordagem.repository';
@@ -6,7 +6,7 @@ import { AbordagemDataSource } from '../abordagem.data-sources';
 
 @Injectable({ providedIn: 'root' })
 export class AbordagemRepositoryImpl implements AbordagemRepository {
-  constructor(private dataSource: AbordagemDataSource) {}
+  dataSource = inject(AbordagemDataSource);
 
   async getAbordagem(): Promise<Abordagem[]> {
     return lastValueFrom(this.dataSource.getAbordagem());

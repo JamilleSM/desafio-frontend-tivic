@@ -8,10 +8,12 @@ import { VeiculoRepositoryImpl } from '../../../data/repositories/veiculo-impl.r
 import { Veiculo } from '../../../domain/models/veiculo.model';
 import { CadastrarVeiculoComponent } from '../../components/cadastrar-veiculo/cadastrar-veiculo.component';
 import { HeaderComponent } from '../../components/header/header.component';
+import { AuthUseCase } from '../../../core/usecases/auth/auth.usecase';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-veiculo',
-  imports: [MatIconModule, MatDialogModule, MatMenuModule, HeaderComponent, ReactiveFormsModule],
+  imports: [MatIconModule, MatDialogModule, MatMenuModule, HeaderComponent, ReactiveFormsModule, AsyncPipe],
   templateUrl: './veiculo.component.html',
   styleUrl: './veiculo.component.scss'
 })
@@ -29,6 +31,8 @@ export class VeiculoComponent {
   veiculosRepository = inject(VeiculoRepositoryImpl);
   dialog = inject(MatDialog);
   toast = inject(ToastrService);
+  authUseCase = inject(AuthUseCase);
+  isLoggedIn$ = this.authUseCase.isLoggedIn$;
 
   ngOnInit(): void {
     this.getVeiculo();
@@ -75,7 +79,7 @@ export class VeiculoComponent {
       this.toast.success('Veículo deletada com sucesso!');
       this.getVeiculo();
     } catch {
-      this.toast.success('Erro ao deletar veículo.');
+      this.toast.error('Erro ao deletar veículo.');
     }
   }
 

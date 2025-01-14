@@ -1,7 +1,15 @@
-<div class="content">
+<div class="content h-screen">
+  @if(path !== '/login' ) {
   <app-sidenav />
-
+  <div class="w-full relative">
+    <app-header class="fixed left-[217px] right-0" />
+    <div class="mt-[69px] max-h-screen overflow-y-scroll">
+      <router-outlet />
+    </div>
+  </div>
+  } @else {
   <div class="w-full">
     <router-outlet />
   </div>
+  }
 </div>

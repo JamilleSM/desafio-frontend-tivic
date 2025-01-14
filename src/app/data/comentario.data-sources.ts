@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Comentario } from '../core/entities/comentario.entity';
 
 @Injectable({ providedIn: 'root' })
 export class ComentarioDataSource {
   private apiUrl = 'http://localhost:3000/';
-
-  constructor(private http: HttpClient) {}
-
+  http = inject(HttpClient);
+  
   getComentario(): Observable<Comentario[]> {
     return this.http.get<Comentario[]>(`${this.apiUrl}comentario`);
   }

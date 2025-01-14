@@ -9,7 +9,11 @@
         </div>
         <div class="section-buttons">
           <form [formGroup]="filterForm">
-            <div class="search-icon" [matMenuTriggerFor]="menu">
+            <div
+              class="search-icon"
+              [matMenuTriggerFor]="menu"
+              style="margin-right: 12px"
+            >
               <mat-icon>filter_list</mat-icon>
               <p>Filtros</p>
             </div>
@@ -58,6 +62,7 @@
             </mat-menu>
           </form>
 
+          @if( isLoggedIn$ | async) {
           <div class="search-icon">
             <mat-icon>delete</mat-icon>
             <p>Apagar</p>
@@ -67,6 +72,7 @@
             <mat-icon>add</mat-icon>
             Nova operação
           </button>
+          }
         </div>
       </div>
 
@@ -77,9 +83,11 @@
           <thead>
             <tr class="text-left align-middle">
               <th style="padding-left: 12px">
+                @if( isLoggedIn$ | async) {
                 <div class="check-icon">
                   <mat-icon>remove</mat-icon>
                 </div>
+                }
               </th>
               <th>
                 <div class="title-icon">
@@ -113,6 +121,7 @@
             @for (operacao of filteresOperacoes; track operacao) {
             <tr class="text-left align-middle border-b border-gray-900">
               <td scope="row">
+                @if( isLoggedIn$ | async) {
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -120,6 +129,7 @@
                     id="flexCheckChecked"
                   />
                 </div>
+                }
               </td>
               <td>{{ operacao.dataInicio | date : "dd/MM/yyyy" }}</td>
               <td>{{ operacao.dataFinal | date : "dd/MM/yyyy" }}</td>
@@ -131,12 +141,14 @@
                   <mat-icon>more_vert</mat-icon>
                 </div>
                 <mat-menu #menu="matMenu">
+                  @if( isLoggedIn$ | async) {
                   <button mat-menu-item (click)="atualizarModal(operacao)">
                     Alterar
                   </button>
                   <button mat-menu-item (click)="deleteOperacao(operacao)">
                     Apagar
                   </button>
+                  }
                   <button mat-menu-item (click)="openModalComentario()">
                     Ver comentários
                   </button>

@@ -9,7 +9,11 @@
         </div>
         <div class="section-buttons">
           <form [formGroup]="filterForm">
-            <div class="search-icon" [matMenuTriggerFor]="menu">
+            <div
+              class="search-icon"
+              [matMenuTriggerFor]="menu"
+              style="margin-right: 12px"
+            >
               <mat-icon>filter_list</mat-icon>
               <p>Filtros</p>
             </div>
@@ -58,6 +62,7 @@
             </mat-menu>
           </form>
 
+          @if( isLoggedIn$ | async) {
           <div class="search-icon">
             <mat-icon>delete</mat-icon>
             <p>Apagar</p>
@@ -67,6 +72,7 @@
             <mat-icon>add</mat-icon>
             Novo veículo
           </button>
+          }
         </div>
       </div>
 
@@ -77,9 +83,11 @@
           <thead>
             <tr class="text-left align-middle">
               <th style="padding-left: 12px">
+                @if( isLoggedIn$ | async) {
                 <div class="check-icon">
                   <mat-icon>remove</mat-icon>
                 </div>
+                }
               </th>
               <th>
                 <div class="title-icon">
@@ -113,6 +121,7 @@
             @for (veiculo of veiculos; track veiculo) {
             <tr class="text-left align-middle border-b border-gray-900">
               <td scope="row">
+                @if( isLoggedIn$ | async) {
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -120,6 +129,7 @@
                     id="flexCheckChecked"
                   />
                 </div>
+                }
               </td>
               <td>{{ veiculo.placa }}</td>
               <td>{{ veiculo.marca }}</td>
@@ -127,6 +137,7 @@
               <td>{{ veiculo.numeroCnh }}</td>
               <td>{{ veiculo.situacaoVeiculo }}</td>
               <td>
+                @if( isLoggedIn$ | async) {
                 <div class="menu-icon" [matMenuTriggerFor]="menu">
                   <mat-icon>more_vert</mat-icon>
                 </div>
@@ -138,6 +149,7 @@
                     Apagar
                   </button>
                 </mat-menu>
+                }
               </td>
             </tr>
             } @empty {

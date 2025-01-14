@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { AsyncPipe, DatePipe } from '@angular/common';
 import { Component, inject, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -10,10 +10,11 @@ import { Operacao } from '../../../domain/models/operacao.model';
 import { CadastrarComentarioComponent } from '../../components/cadastrar-comentario/cadastrar-comentario.component';
 import { CadastrarOperacaoComponent } from '../../components/cadastrar-operacao/cadastrar-operacao.component';
 import { HeaderComponent } from '../../components/header/header.component';
+import { AuthUseCase } from '../../../core/usecases/auth/auth.usecase';
 
 @Component({
   selector: 'app-operacao',
-  imports: [MatIconModule, MatDialogModule, MatMenuModule, DatePipe, HeaderComponent, ReactiveFormsModule],
+  imports: [MatIconModule, MatDialogModule, MatMenuModule, DatePipe, HeaderComponent, ReactiveFormsModule, AsyncPipe],
   templateUrl: './operacao.component.html',
   styleUrl: './operacao.component.scss'
 })
@@ -31,6 +32,8 @@ export class OperacaoComponent {
   operacoesRepository = inject(OperacoesRepositoryImpl);
   dialog = inject(MatDialog);
   toast = inject(ToastrService);
+  authUseCase = inject(AuthUseCase);
+  isLoggedIn$ = this.authUseCase.isLoggedIn$;
 
   ngOnInit(): void {
     this.getOperacoes();
@@ -86,7 +89,7 @@ export class OperacaoComponent {
       this.toast.success('Operação deletada com sucesso!');
       this.getOperacoes();
     } catch {
-      this.toast.success('Erro ao deletar operação.');
+      this.toast.error('Erro ao deletar operação.');
     }
   }
 

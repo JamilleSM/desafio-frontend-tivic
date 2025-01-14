@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { Comentario } from '../../core/entities/comentario.entity';
 import { ComentarioDataSource } from '../comentario.data-sources';
@@ -6,7 +6,7 @@ import { ComentarioRepository } from '../../domain/repositories/comentario.repos
 
 @Injectable({ providedIn: 'root' })
 export class ComentarioRepositoryImpl implements ComentarioRepository {
-  constructor(private dataSource: ComentarioDataSource) {}
+  dataSource = inject(ComentarioDataSource);
 
   async getComentario(): Promise<Comentario[]> {
     return lastValueFrom(this.dataSource.getComentario());

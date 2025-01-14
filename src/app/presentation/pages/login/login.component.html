@@ -1,0 +1,57 @@
+<main class="container-login">
+  <div class="img-login">
+    <div class="container-img-login">
+      <div class="image">
+        <img src="assets/logotipo_login.png" alt="Login background" />
+      </div>
+
+      <div class="redes-sociais">
+        <img src="assets/facebook.png" alt="Facebook" />
+        <img src="assets/instagram.png" alt="Instagram" />
+        <img src="assets/x.png" alt="X" />
+      </div>
+    </div>
+  </div>
+
+  <div class="content-form-login">
+    <div class="text-login">
+      <P>Login</P>
+      <span>Faça seu login para continuar</span>
+    </div>
+
+    <form [formGroup]="loginForm">
+      <div class="input-login">
+        <label>Email</label>
+        <mat-icon>mail</mat-icon>
+        <input
+          type="text"
+          placeholder="Ex: abc@gmail.com"
+          formControlName="email"
+        />
+      </div>
+
+      <div class="input-login">
+        <label>Senha</label>
+        <mat-icon>lock</mat-icon>
+        <input
+          type="password"
+          placeholder="************"
+          formControlName="senha"
+        />
+      </div>
+    </form>
+
+    <div class="content-button">
+      <button type="button" class="btn-primary" (click)="login()">
+        Entrar
+        <mat-icon>chevron_rimat-icon</mat-icon>
+      </button>
+    </div>
+
+    <div class="login-next">
+      <span (click)="loginSemConta()"
+        >Continuar sem login <mat-icon>chevron_right</mat-icon></span
+      >
+    </div>
+  </div>
+</main>
