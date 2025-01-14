@@ -1,0 +1,151 @@
+<main>
+  <app-header />
+  <div class="content-veiculo">
+    <div class="container-veiculo">
+      <div class="section-options">
+        <div class="section-text">
+          <h1>Veículos</h1>
+          <p>Registro de veículos</p>
+        </div>
+        <div class="section-buttons">
+          <form [formGroup]="filterForm">
+            <div class="search-icon" [matMenuTriggerFor]="menu">
+              <mat-icon>filter_list</mat-icon>
+              <p>Filtros</p>
+            </div>
+
+            <mat-menu #menu="matMenu">
+              <input
+                type="text"
+                placeholder="Nome do responsável"
+                formControlName="nomeResponsavel"
+                mat-menu-item
+                (click)="$event.stopPropagation()"
+              />
+              <input
+                type="text"
+                formControlName="local"
+                placeholder="Local"
+                mat-menu-item
+                (click)="$event.stopPropagation()"
+              />
+              <input
+                type="text"
+                formControlName="dataInicio"
+                placeholder="Data ínicio"
+                mat-menu-item
+                onfocus="(this.type='date')"
+                onblur="(this.type= this.value ? 'date' : 'text')"
+                (click)="$event.stopPropagation()"
+              />
+              <input
+                type="text"
+                formControlName="dataFinal"
+                placeholder="Data final"
+                mat-menu-item
+                onfocus="(this.type='date')"
+                onblur="(this.type= this.value ? 'date' : 'text')"
+                (click)="$event.stopPropagation()"
+              />
+              <p
+                mat-menu-item
+                type="submit"
+                class="btn-primary"
+                (click)="applyFilters($event)"
+              >
+                Aplicar
+              </p>
+            </mat-menu>
+          </form>
+
+          <div class="search-icon">
+            <mat-icon>delete</mat-icon>
+            <p>Apagar</p>
+          </div>
+
+          <button type="button" class="btn-primary" (click)="openModal()">
+            <mat-icon>add</mat-icon>
+            Novo veículo
+          </button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table
+          class="table table-auto border-collapse border border-gray-300 w-full text-sm text-gray-800 border-spacing-2"
+        >
+          <thead>
+            <tr class="text-left align-middle">
+              <th style="padding-left: 12px">
+                <div class="check-icon">
+                  <mat-icon>remove</mat-icon>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Placa</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Marca</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Modelo</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Número CNH</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Status do veículo</p>
+                </div>
+              </th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (veiculo of veiculos; track veiculo) {
+            <tr class="text-left align-middle border-b border-gray-900">
+              <td scope="row">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="flexCheckChecked"
+                  />
+                </div>
+              </td>
+              <td>{{ veiculo.placa }}</td>
+              <td>{{ veiculo.marca }}</td>
+              <td>{{ veiculo.modelo }}</td>
+              <td>{{ veiculo.numeroCnh }}</td>
+              <td>{{ veiculo.situacaoVeiculo }}</td>
+              <td>
+                <div class="menu-icon" [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </div>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="atualizarModal(veiculo)">
+                    Alterar
+                  </button>
+                  <button mat-menu-item (click)="deleteOperacao(veiculo)">
+                    Apagar
+                  </button>
+                </mat-menu>
+              </td>
+            </tr>
+            } @empty {
+            <p>Sem operações registradas no momento!</p>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>

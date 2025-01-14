@@ -7,8 +7,8 @@ import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { ToastrService } from 'ngx-toastr';
 import { OperacoesRepositoryImpl } from '../../../data/repositories/operacao-impl.repository';
 import { Operacao } from '../../../domain/models/operacao.model';
+import { CadastrarComentarioComponent } from '../../components/cadastrar-comentario/cadastrar-comentario.component';
 import { CadastrarOperacaoComponent } from '../../components/cadastrar-operacao/cadastrar-operacao.component';
-import { ComentarioComponent } from '../../components/comentarios/comentario.component';
 import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
@@ -38,7 +38,7 @@ export class OperacaoComponent {
 
   openModal() {
     const dialogRef = this.dialog.open(CadastrarOperacaoComponent, {
-      width: '60vw', minWidth: "60vw"
+      width: '40vw', minWidth: "40vw"
     });
     dialogRef.afterClosed().subscribe(() => {
       this.getOperacoes();
@@ -46,7 +46,9 @@ export class OperacaoComponent {
   }
 
   openModalComentario() {
-    const dialogRef = this.dialog.open(ComentarioComponent, {});
+    const dialogRef = this.dialog.open(CadastrarComentarioComponent, {
+      width: '60vw', minWidth: "60vw"
+    });
     dialogRef.afterClosed().subscribe(() => {
       this.getOperacoes();
     });
@@ -54,6 +56,8 @@ export class OperacaoComponent {
 
   atualizarModal(operacao: Operacao) {
     const dialogRef = this.dialog.open(CadastrarOperacaoComponent, {
+      width: '60vw', 
+      minWidth: "60vw",
       data: { operacao },
     });
     dialogRef.afterClosed().subscribe(() => {

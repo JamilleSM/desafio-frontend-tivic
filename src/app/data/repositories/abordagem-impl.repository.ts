@@ -12,8 +12,8 @@ export class AbordagemRepositoryImpl implements AbordagemRepository {
     return lastValueFrom(this.dataSource.getAbordagem());
   }
 
-  async setAbordagem(abordagem: Abordagem): Promise<void> {
-    await lastValueFrom(this.dataSource.setAbordagem(abordagem));
+  async setAbordagem(abordagem: Abordagem): Promise<Abordagem> {
+    return await lastValueFrom(this.dataSource.setAbordagem(abordagem));
   }
 
   async updateAbordagem(id: string, abordagem: Abordagem): Promise<void> {

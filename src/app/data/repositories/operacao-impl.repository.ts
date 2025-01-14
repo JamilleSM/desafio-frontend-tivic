@@ -12,8 +12,8 @@ export class OperacoesRepositoryImpl implements OperacoesRepository {
     return lastValueFrom(this.dataSource.getOperacoes());
   }
 
-  async setOperacao(operacao: Operacao): Promise<void> {
-    await lastValueFrom(this.dataSource.setOperacao(operacao));
+  async setOperacao(operacao: Operacao): Promise<Operacao> {
+    return await lastValueFrom(this.dataSource.setOperacao(operacao));
   }
 
   async updateOperacao(id: string, operacao: Operacao): Promise<void> {

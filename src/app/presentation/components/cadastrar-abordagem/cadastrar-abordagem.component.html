@@ -1,8 +1,8 @@
 <section>
-  <h2 mat-dialog-title>
-    Cadastrar de abordagem
+  <div mat-dialog-title class="header-modal">
+    <p>{{ isUpdate ? "Atualizar abordagem" : "Cadastrar nova abordagem" }}</p>
     <mat-icon (click)="closeModal()">close</mat-icon>
-  </h2>
+  </div>
 
   <form [formGroup]="formGroup">
     <mat-dialog-content>
@@ -14,6 +14,7 @@
             placeholder="Selecione um"
             formControlName="testeBafometro"
           />
+          <validator controlName="testeBafometro"></validator>
         </div>
         <div class="input-container">
           <label>Nível de álcool<span>*</span></label>
@@ -22,6 +23,7 @@
             placeholder="Ex: 0,8"
             formControlName="nivelAlcool"
           />
+          <validator controlName="nivelAlcool"></validator>
         </div>
       </div>
       <div class="container-inputs">
@@ -32,22 +34,113 @@
             placeholder="Ex: R$ 300,00"
             formControlName="valorMulta"
           />
+          <validator controlName="valorMulta"></validator>
         </div>
         <div class="input-container">
           <label>Data recolhimento<span>*</span></label>
           <input type="Date" formControlName="dataRecolhimento" />
+          <validator controlName="dataRecolhimento"></validator>
         </div>
       </div>
-      <div class="veiculo-wrapper">
+      <div class="container-inputs">
         <div class="input-container">
-          <label>Veículo</label>
-          <input type="text" placeholder="Selecione um veículo" />
+          <label>Nome do condutor<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: Bruno Silva"
+            formControlName="nome"
+          />
+          <validator controlName="nome"></validator>
         </div>
+        <div class="input-container">
+          <label>CPF<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: 000.000.000-00"
+            formControlName="cpf"
+          />
+          <validator controlName="cpf"></validator>
+        </div>
+      </div>
+      <div class="container-inputs">
+        <div class="input-container">
+          <label>RG<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: 00.000.000-00"
+            formControlName="rg"
+          />
+          <validator controlName="rg"></validator>
+        </div>
+        <div class="input-container">
+          <label>Data de Nascimento<span>*</span></label>
+          <input type="Date" formControlName="dataNascimento" />
+        </div>
+        <validator controlName="dataNascimento"></validator>
+      </div>
+      <div class="veiculo-wrapper mt-2">
+        <div class="input-container">
+          <label>Pesquisar veículo</label>
+          <input
+            type="text"
+            placeholder="Pesquisar.."
+            (input)="searchVeiculo($event)"
+          />
+        </div>
+      </div>
 
-        <span>
-          <mat-icon>add</mat-icon>
-          Adicionar novo veículo
-        </span>
+      <div class="table-container">
+        <table
+          class="table table-auto mt-4 w-full text-sm text-gray-800 border-spacing-2"
+        >
+          <thead>
+            <tr class="text-left align-middle">
+              <th style="padding-left: 12px"></th>
+              <th>
+                <div class="title-icon">
+                  <p>Placa</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Marca</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
+                  <p>Modelo</p>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (veiculo of filteredVeiculos; track veiculo) {
+            <tr class="text-left align-middle border-b border-gray-900">
+              <td scope="row">
+                <div class="form-check">
+                  <input
+                    name="radio"
+                    type="radio"
+                    [checked]="formGroup.get('idVeiculo')?.value === veiculo.id"
+                    (change)="onChangeVeiculo(veiculo)"
+                  />
+                </div>
+              </td>
+              <td>{{ veiculo.placa }}</td>
+              <td>{{ veiculo.marca }}</td>
+              <td>{{ veiculo.modelo }}</td>
+            </tr>
+            } @empty {
+            <p>Sem veículos registradas no momento!</p>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content-button" (click)="submitForm()">
+        <button type="button" class="btn-primary">
+          {{ isUpdate ? "Atualizar" : "Cadastrar" }}
+        </button>
       </div>
     </mat-dialog-content>
   </form>

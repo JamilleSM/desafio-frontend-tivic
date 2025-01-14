@@ -1,10 +1,14 @@
 export interface Abordagem {
-  idAbordagem: number,
-  idVeiculo: number,
-  idOperacao: number,
+  id: string,
+  idOperacao: string,
+  idVeiculo: string,
   testeBafometro: string,
   nivelAlcool: string,
   dataRecolhimento: Date,
   valorMulta: number,
+  nome: string,
+  rg: string,
+  cpf: string,
+  dataNascimento: Date,
 }
  

@@ -1,6 +1,6 @@
 export class Veiculo {
     constructor(
-      public id: number,
+      public id: string,
       public modelo: string,
       public marca: string,
       public placa: string,

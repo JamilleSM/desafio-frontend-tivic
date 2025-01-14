@@ -1,0 +1,62 @@
+<section>
+  <div mat-dialog-title class="header-modal">
+    <p>{{ isUpdate ? "Atualizar veículo" : "Cadastrar novo veículo" }}</p>
+    <mat-icon (click)="closeModal()">close</mat-icon>
+  </div>
+
+  <mat-dialog-content>
+    <form [formGroup]="formGroup">
+      <div class="container-inputs">
+        <div class="input-container">
+          <label>Placa<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: ABC-1234"
+            formControlName="placa"
+          />
+          <validator controlName="placa"></validator>
+        </div>
+        <div class="input-container">
+          <label>Marca<span>*</span></label>
+          <input type="text" placeholder="Ex: Toyota" formControlName="marca" />
+          <validator controlName="marca"></validator>
+        </div>
+        <div class="input-container">
+          <label>Modelo<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: Corolla"
+            formControlName="modelo"
+          />
+          <validator controlName="modelo"></validator>
+        </div>
+      </div>
+      <div class="container-inputs">
+        <div class="input-container input-wrapper">
+          <label>Número CNH<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: 12345678901"
+            formControlName="numeroCnh"
+          />
+          <validator controlName="numeroCnh"></validator>
+        </div>
+        <div class="input-container">
+          <label>Situação do veículo<span>*</span></label>
+          <input
+            type="text"
+            placeholder="Ex: Recolhido"
+            formControlName="situacaoVeiculo"
+          />
+          <validator controlName="situacaoVeiculo"></validator>
+        </div>
+      </div>
+
+      <div class="content-button">
+        <button type="button" class="btn-primary" (click)="submitForm()">
+          {{ isUpdate ? "Atualizar" : "Cadastrar" }}
+        </button>
+      </div>
+    </form>
+  </mat-dialog-content>
+</section>

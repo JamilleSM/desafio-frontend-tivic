@@ -1,16 +1,21 @@
 section {
     border-radius: 12px;
 
-    h2 {
+    .header-modal {
         display: flex;
         align-items: center;
-        font-size: 24px;
-        font-weight: 700;
-        color: 313131;
+        justify-content: space-between;
         border-bottom: 1px solid #E9E9E9;
+        margin-bottom: 22px;
+        margin-top: 22px;
+
+        p {
+            font-size: 24px;
+            font-weight: 700;
+            color: #313131;
+        }
 
         mat-icon {
-            margin-left: 184px;
             color: #626262;
             width: 22px;
             height: 22px;
@@ -50,5 +55,35 @@ section {
                 font-size: 16px;
             }
         }
+
+        .buttons-modal {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            button {
+                height: 36px;
+                font-size: 12px;
+                margin-top: 24px;
+                color: #1F263E;
+                border: 1px solid #1f263e42;
+                background-color: transparent;
+                font-weight: 600;
+    
+                mat-icon {
+                    width: 16px;
+                    height: 16px;
+                    font-size: 16px;
+                    color: #1F263E;
+                }
+            }
+        }
+    }
+
+    .content-button {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-top: 44px;
     }
 }

@@ -13,14 +13,14 @@ section {
             font-size: 24px;
             font-weight: 700;
             color: #313131;
-    
-            mat-icon {
-                color: #626262;
-                width: 22px;
-                height: 22px;
-                font-size: 22px;
-                cursor: pointer;
-            }
+        }
+
+        mat-icon {
+            color: #626262;
+            width: 22px;
+            height: 22px;
+            font-size: 22px;
+            cursor: pointer;
         }
     }
 
@@ -41,13 +41,18 @@ section {
 
         button {
             height: 40px;
-            font-size: 14px;
+            font-size: 12px;
             margin-top: 24px;
+            color: #1F263E;
+            border: 1px solid #1f263e42;
+            background-color: transparent;
+            font-weight: 600;
 
             mat-icon {
                 width: 16px;
                 height: 16px;
                 font-size: 16px;
+                color: #1F263E;
             }
         }
 
@@ -61,12 +66,27 @@ section {
                 color: #667085;
             }
         }
+
+        p {
+            padding: 20px;
+            font-weight: 600;
+        }
+    }
+
+    td {
+        mat-icon {
+            cursor: pointer;
+            color: #667085;
+            font-size: 21px;
+            width: 21px;
+            height: 21px;
+        }
     }
 
     .content-button {
         display: flex;
         align-items: flex-end;
         justify-content: flex-end;
-        margin-top: 24px;
+        margin-top: 44px;
     }
 }

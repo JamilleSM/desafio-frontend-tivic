@@ -10,6 +10,8 @@ import { CadastrarAbordagemComponent } from '../cadastrar-abordagem/cadastrar-ab
 import { ValidatorComponent } from '../validator/validator.component';
 import { Abordagem } from '../../../domain/models/abordagem.model';
 import { AbordagemRepositoryImpl } from '../../../data/repositories/abordagem-impl.repository';
+import { VeiculoRepositoryImpl } from '../../../data/repositories/veiculo-impl.repository';
+import { Veiculo } from '../../../domain/models/veiculo.model';
 
 @Component({
   selector: 'app-cadastrar-operacao',
@@ -19,6 +21,7 @@ import { AbordagemRepositoryImpl } from '../../../data/repositories/abordagem-im
 })
 export class CadastrarOperacaoComponent {
   abordagens: Abordagem[] = [];
+  veiculos: Veiculo[] = [];
   formGroup: FormGroup = new FormGroup({
     id: new FormControl(''),
     dataInicio: new FormControl('', [Validators.required]),
@@ -34,6 +37,7 @@ export class CadastrarOperacaoComponent {
   dialog = inject(MatDialog);
   operacoesRepository = inject(OperacoesRepositoryImpl);
   abordagensRepository = inject(AbordagemRepositoryImpl);
+  veiculosRepository = inject(VeiculoRepositoryImpl);
   toast = inject(ToastrService);
 
   get isUpdate() {
@@ -52,20 +56,67 @@ export class CadastrarOperacaoComponent {
   }
 
   openModal() {
-    const dialogRef = this.dialog.open(CadastrarAbordagemComponent, {});
+    const dialogRef = this.dialog.open(CadastrarAbordagemComponent, {
+      width: '60vw', 
+      minWidth: "60vw",
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) this.abordagens.push(result)
+    });
+  }
+
+  atualizarAbordagemModal(abordagem: Abordagem) {
+    const dialogRef = this.dialog.open(CadastrarAbordagemComponent, {
+      width: '60vw', 
+      minWidth: "60vw",
+      data: { abordagem },
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        const abordagemIndex = this.abordagens.findIndex(a => a.id === result.id)
+        if(abordagemIndex >= 0) this.abordagens[abordagemIndex] = result
+        console.log(this.abordagens)
+      }
+      this.getAbordagem();
+    });
   }
 
   async getAbordagem(): Promise<void> {
     try {
-      this.abordagens = await this.abordagensRepository.getAbordagem();
+      const abordagens = await this.abordagensRepository.getAbordagem();
+  
+      if (this.isUpdate) {
+        const operacaoId = this.formGroup.get('id')?.value;
+        this.abordagens = abordagens.filter(abordagem => abordagem.idOperacao == operacaoId);
+      }
     } catch {
       this.toast.success('Erro ao obter abordagens.');
     }
   }
 
+  async getVeiculo(): Promise<void> {
+    try {
+      const veiculos = await this.veiculosRepository.getVeiculo();
+  
+      if (this.isUpdate) {
+        this.abordagens.map(abordagem => {
+          this.veiculos = veiculos.filter(veiculo => veiculo.id === abordagem.idVeiculo);
+        });
+      }
+    } catch {
+      this.toast.success('Erro ao obter veículos.');
+    }
+  }
+
   async setOperacao(operacao: Operacao): Promise<void> {
     try {
-      await this.operacoesRepository.setOperacao(operacao);
+      const savedOperacao = await this.operacoesRepository.setOperacao(operacao);
+      for(const abordagem of this.abordagens) {
+        if(!abordagem.idOperacao) {
+          abordagem.idOperacao = savedOperacao.id;
+          this.updateAbordagem(abordagem);
+        }
+      }
       this.closeModal();
       this.toast.success('Operação cadastrada com sucesso!');
     } catch {
@@ -73,13 +124,44 @@ export class CadastrarOperacaoComponent {
     }
   }
 
+  async updateAbordagem(abordagem: Abordagem): Promise<void> {
+    try {
+      await this.abordagensRepository.updateAbordagem(abordagem.id, abordagem);
+      this.closeModal();
+    } catch {
+      this.toast.error('Erro ao atualizar abordagem.');
+    }
+  }
+
   async updateOperacao(operacao: Operacao): Promise<void> {
     try {
       await this.operacoesRepository.updateOperacao(operacao.id, operacao);
+      for(const abordagem of this.abordagens) {
+        if(!abordagem.idOperacao) {
+          abordagem.idOperacao = this.formGroup.get('id')?.value;
+          this.updateAbordagem(abordagem);
+        }
+      }
       this.closeModal();
       this.toast.success('Operação atualizada com sucesso!');
     } catch {
       this.toast.error('Erro ao atualizar operação.');
+    }
+  }
+
+  async deleteAbordagem(abordagem: Abordagem): Promise<void> {
+    const id = abordagem.id;
+    if (!id) {
+      this.toast.warning('ID da abordagem não encontrado.');
+      return;
+    }
+  
+    try {
+      await this.abordagensRepository.deleteAbordagem(id);
+      this.toast.success('Abordagem deletada com sucesso!');
+      this.getAbordagem();
+    } catch {
+      this.toast.success('Erro ao deletar abordagem.');
     }
   }
 
@@ -96,8 +178,9 @@ export class CadastrarOperacaoComponent {
       this.updateOperacao(operacao);
       return;
     }
+
+    delete operacao["id"]
     this.setOperacao(operacao);
-    return;
   }
 
   private updateForm(operacao: Operacao): void {

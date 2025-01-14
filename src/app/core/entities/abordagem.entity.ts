@@ -1,10 +1,14 @@
 export class Abordagem {
     constructor(
-      public idAbordagem: number,
-      public idVeiculo: number,
-      public idOperacao: number,
+      public id: string,
+      public idOperacao: string,
+      public idVeiculo: string,
       public testeBafometro: string,
       public nivelAlcool: string,
+      public nome: string,
+      public rg: string,
+      public cpf: string,
+      public dataNascimento: Date,
       public dataRecolhimento: Date,
       public valorMulta: number,
     ) {}
