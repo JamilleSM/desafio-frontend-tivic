@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && json-server --watch public/data/db.json",
+    "build": "ng build && nohup json-server --watch public/data/db.json &",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
