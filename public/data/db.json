@@ -1,0 +1,763 @@
+{
+  "operacao": [
+    {
+      "id": "3",
+      "dataInicio": "2025-01-08",
+      "dataFinal": "2025-01-09",
+      "local": "Marginal Tietê, São Paulo",
+      "nomeResponsavel": "Carlos Souza",
+      "status": "Em andamento",
+      "observacoes": "Chuva intensa impossibilitou a operação."
+    },
+    {
+      "id": "4",
+      "dataInicio": "2025-01-07T23:00:00",
+      "dataFinal": "2025-01-08T04:00:00",
+      "local": "Rodovia Presidente Dutra, Guarulhos",
+      "nomeResponsavel": "Ana Santos",
+      "status": "Concluído",
+      "observacoes": "20 motoristas autuados."
+    },
+    {
+      "id": "5",
+      "dataInicio": "2025-01-06T22:30:00",
+      "dataFinal": "2025-01-07T03:30:00",
+      "local": "Avenida Brasil, Rio de Janeiro",
+      "nomeResponsavel": "Roberto Lima",
+      "status": "Concluído",
+      "observacoes": "5 veículos apreendidos."
+    },
+    {
+      "id": "6",
+      "dataInicio": "2025-01-05T22:00:00",
+      "dataFinal": "2025-01-06T03:00:00",
+      "local": "Avenida Atlântica, Copacabana",
+      "nomeResponsavel": "Luciana Araújo",
+      "status": "Concluído",
+      "observacoes": "Sem ocorrências graves."
+    },
+    {
+      "id": "7",
+      "dataInicio": "2025-01-04",
+      "dataFinal": "2025-01-05",
+      "local": "Avenida Beira-Mar, Fortaleza",
+      "nomeResponsavel": "José Ferreira",
+      "status": "Concluído",
+      "observacoes": "9 motoristas autuados por embriaguez."
+    },
+    {
+      "id": "8",
+      "dataInicio": "2025-01-03T21:30:00",
+      "dataFinal": "2025-01-04T02:00:00",
+      "local": "Avenida Goiás, Goiânia",
+      "nomeResponsavel": "Paula Mendes",
+      "status": "Cancelado",
+      "observacoes": "Problemas técnicos com os equipamentos."
+    },
+    {
+      "id": "9",
+      "dataInicio": "2025-01-02T22:00:00",
+      "dataFinal": "2025-01-03T03:00:00",
+      "local": "Avenida do Contorno, Belo Horizonte",
+      "nomeResponsavel": "Ricardo Costa",
+      "status": "Concluído",
+      "observacoes": "15 motoristas multados por irregularidades."
+    },
+    {
+      "id": "10",
+      "dataInicio": "2025-01-01T23:00:00",
+      "dataFinal": "2025-01-02T04:00:00",
+      "local": "BR-101, Florianópolis",
+      "nomeResponsavel": "Fernanda Nunes",
+      "status": "Concluído",
+      "observacoes": "Alta taxa de compliance entre motoristas."
+    },
+    {
+      "id": "11",
+      "dataInicio": "2024-12-31T22:30:00",
+      "dataFinal": "2025-01-01T03:30:00",
+      "local": "Avenida das Américas, Rio de Janeiro",
+      "nomeResponsavel": "Eduardo Pereira",
+      "status": "Concluído",
+      "observacoes": "Operação reforçada para o Ano Novo."
+    },
+    {
+      "id": "12",
+      "dataInicio": "2024-12-30T22:00:00",
+      "dataFinal": "2024-12-31T02:30:00",
+      "local": "Avenida Dom Luís, Fortaleza",
+      "nomeResponsavel": "Juliana Barbosa",
+      "status": "Concluído",
+      "observacoes": "Motoristas alertados sobre blitz."
+    },
+    {
+      "id": "13",
+      "dataInicio": "2024-12-29T21:00:00",
+      "dataFinal": "2024-12-30T01:00:00",
+      "local": "Rua XV de Novembro, Curitiba",
+      "nomeResponsavel": "Fábio Gomes",
+      "status": "Concluído",
+      "observacoes": "Vários motoristas abordados, nenhuma multa."
+    },
+    {
+      "id": "14",
+      "dataInicio": "2024-12-28T22:00:00",
+      "dataFinal": "2024-12-29T02:30:00",
+      "local": "Avenida Boa Viagem, Recife",
+      "nomeResponsavel": "Patrícia Ribeiro",
+      "status": "Concluído",
+      "observacoes": "Detecção de 8 motoristas sob efeito de álcool."
+    },
+    {
+      "id": "15",
+      "dataInicio": "2024-12-27T22:30:00",
+      "dataFinal": "2024-12-28T03:00:00",
+      "local": "Rodovia Anchieta, São Bernardo do Campo",
+      "nomeResponsavel": "Marcos Almeida",
+      "status": "Concluído",
+      "observacoes": "Operação tranquila, sem incidentes."
+    }
+  ],
+  "abordagem": [
+    {
+      "id": "1",
+      "testeBafometro": true,
+      "nivelAlcool": 0.08,
+      "dataRecolhimento": "2025-01-05",
+      "valorMulta": 1200,
+      "idVeiculo": 1,
+      "idOperacao": 1,
+      "idCondutor": 1
+    },
+    {
+      "id": "2",
+      "testeBafometro": false,
+      "nivelAlcool": 0,
+      "dataRecolhimento": null,
+      "valorMulta": 0,
+      "idVeiculo": 2,
+      "idOperacao": 1,
+      "idCondutor": 2
+    },
+    {
+      "id": "3",
+      "testeBafometro": true,
+      "nivelAlcool": 0.15,
+      "dataRecolhimento": "2025-01-06",
+      "valorMulta": 2500,
+      "idVeiculo": 3,
+      "idOperacao": 2,
+      "idCondutor": 3
+    },
+    {
+      "id": "4",
+      "testeBafometro": true,
+      "nivelAlcool": 0,
+      "dataRecolhimento": null,
+      "valorMulta": 0,
+      "idVeiculo": 4,
+      "idOperacao": 2,
+      "idCondutor": 4
+    },
+    {
+      "id": "6",
+      "testeBafometro": true,
+      "nivelAlcool": 0.09,
+      "valorMulta": 1300,
+      "dataRecolhimento": "2025-01-07",
+      "idVeiculo": 6
+    },
+    {
+      "id": "7",
+      "testeBafometro": true,
+      "nivelAlcool": 0.12,
+      "valorMulta": 2000,
+      "dataRecolhimento": "2025-01-08",
+      "nome": "dfg",
+      "cpf": "44444444444",
+      "rg": "44444444",
+      "dataNascimento": "2025-01-14",
+      "idCondutor": 7,
+      "idOperacao": 3,
+      "idVeiculo": "1"
+    },
+    {
+      "id": "8",
+      "testeBafometro": false,
+      "nivelAlcool": 0,
+      "dataRecolhimento": null,
+      "valorMulta": 0,
+      "idVeiculo": 8,
+      "idOperacao": 4,
+      "idCondutor": 8
+    },
+    {
+      "id": "9",
+      "testeBafometro": true,
+      "nivelAlcool": 0.05,
+      "dataRecolhimento": null,
+      "valorMulta": 800,
+      "idVeiculo": 9,
+      "idOperacao": 4,
+      "idCondutor": 9
+    },
+    {
+      "id": "10",
+      "testeBafometro": true,
+      "nivelAlcool": 0.18,
+      "dataRecolhimento": "2025-01-09",
+      "valorMulta": 3000,
+      "idVeiculo": 10,
+      "idOperacao": 4,
+      "idCondutor": 10
+    },
+    {
+      "id": "11",
+      "testeBafometro": false,
+      "nivelAlcool": 0,
+      "dataRecolhimento": null,
+      "valorMulta": 0,
+      "idVeiculo": 11,
+      "idOperacao": 5,
+      "idCondutor": 11
+    },
+    {
+      "id": "12",
+      "testeBafometro": true,
+      "nivelAlcool": 0.07,
+      "dataRecolhimento": null,
+      "valorMulta": 1000,
+      "idVeiculo": 12,
+      "idOperacao": 5,
+      "idCondutor": 12
+    },
+    {
+      "id": "13",
+      "testeBafometro": true,
+      "nivelAlcool": 0.22,
+      "dataRecolhimento": "2025-01-10",
+      "valorMulta": 3500,
+      "idVeiculo": 13,
+      "idOperacao": 6,
+      "idCondutor": 13
+    },
+    {
+      "id": "14",
+      "testeBafometro": false,
+      "nivelAlcool": 0,
+      "dataRecolhimento": null,
+      "valorMulta": 0,
+      "idVeiculo": 14,
+      "idOperacao": 6,
+      "idCondutor": 14
+    },
+    {
+      "id": "15",
+      "testeBafometro": true,
+      "nivelAlcool": 0.1,
+      "dataRecolhimento": "2025-01-11",
+      "valorMulta": 1800,
+      "idVeiculo": 15,
+      "idOperacao": 6,
+      "idCondutor": 15
+    },
+    {
+      "id": "98ed",
+      "testeBafometro": "asd",
+      "nivelAlcool": "asd",
+      "valorMulta": "asd",
+      "dataRecolhimento": "2025-01-13",
+      "idVeiculo": ""
+    },
+    {
+      "id": "829d",
+      "testeBafometro": "asd",
+      "nivelAlcool": "asd",
+      "valorMulta": "asd",
+      "dataRecolhimento": "2025-01-13",
+      "idVeiculo": ""
+    },
+    {
+      "id": "3046",
+      "testeBafometro": "sdfs",
+      "nivelAlcool": "sdf",
+      "valorMulta": "sdfs",
+      "dataRecolhimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": ""
+    },
+    {
+      "id": "3e24",
+      "testeBafometro": "ssdff",
+      "nivelAlcool": "sdf",
+      "valorMulta": "sdf",
+      "dataRecolhimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": ""
+    },
+    {
+      "id": "cd66",
+      "testeBafometro": "sdf",
+      "nivelAlcool": "ssdf",
+      "valorMulta": "sdf",
+      "dataRecolhimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": ""
+    },
+    {
+      "id": "94a7",
+      "testeBafometro": "asd",
+      "nivelAlcool": "asd",
+      "valorMulta": "asd",
+      "dataRecolhimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": ""
+    },
+    {
+      "id": "3fb7",
+      "testeBafometro": "asd",
+      "nivelAlcool": "sad",
+      "valorMulta": "as",
+      "dataRecolhimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": ""
+    },
+    {
+      "id": "943a",
+      "testeBafometro": "asd",
+      "nivelAlcool": "asd",
+      "valorMulta": "asd",
+      "dataRecolhimento": "2025-01-24",
+      "idCondutor": "",
+      "idOperacao": ""
+    },
+    {
+      "id": "607d",
+      "testeBafometro": "asd",
+      "nivelAlcool": "asd",
+      "valorMulta": "asd",
+      "dataRecolhimento": "2025-01-17",
+      "idCondutor": ""
+    },
+    {
+      "id": "d5a9",
+      "testeBafometro": "sdf",
+      "nivelAlcool": "sdf",
+      "valorMulta": "sdf",
+      "dataRecolhimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": ""
+    },
+    {
+      "id": "fe84",
+      "testeBafometro": "SSSSSSS",
+      "nivelAlcool": "aaaaa",
+      "valorMulta": "ADSAD",
+      "dataRecolhimento": "2025-01-13",
+      "nome": "sdf",
+      "cpf": "343",
+      "rg": "344",
+      "dataNascimento": "2025-01-14",
+      "idCondutor": "",
+      "idOperacao": "972e",
+      "idVeiculo": "1"
+    },
+    {
+      "id": "97d8",
+      "testeBafometro": "aaa",
+      "nivelAlcool": "aaa",
+      "valorMulta": "aaa",
+      "dataRecolhimento": "2025-01-13",
+      "nome": "aa",
+      "cpf": "1111",
+      "rg": "1111",
+      "dataNascimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": ""
+    },
+    {
+      "id": "4496",
+      "testeBafometro": "asd",
+      "nivelAlcool": "as",
+      "valorMulta": "asd",
+      "dataRecolhimento": "2025-01-13",
+      "nome": "qqqqqqqqqqqq",
+      "cpf": "asd",
+      "rg": "sdf",
+      "dataNascimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": "",
+      "idVeiculo": "2"
+    },
+    {
+      "id": "2a70",
+      "testeBafometro": "sdf",
+      "nivelAlcool": "sdfs",
+      "valorMulta": "sdf",
+      "dataRecolhimento": "2025-01-13",
+      "nome": "dsf",
+      "cpf": "sdf",
+      "rg": "sdf",
+      "dataNascimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": "",
+      "idVeiculo": "1"
+    },
+    {
+      "id": "b3f3",
+      "testeBafometro": "dfg",
+      "nivelAlcool": "dfg",
+      "valorMulta": "dfg",
+      "dataRecolhimento": "2025-01-13",
+      "nome": "fgd",
+      "cpf": "dfg",
+      "rg": "dfg",
+      "dataNascimento": "2024-12-31",
+      "idCondutor": "",
+      "idOperacao": "",
+      "idVeiculo": "2"
+    },
+    {
+      "id": "09f8",
+      "testeBafometro": "asd",
+      "nivelAlcool": "asd",
+      "valorMulta": "asd",
+      "dataRecolhimento": "2025-01-16",
+      "nome": "asd",
+      "cpf": "asd",
+      "rg": "asd",
+      "dataNascimento": "2025-01-01",
+      "idCondutor": "",
+      "idOperacao": "",
+      "idVeiculo": "2"
+    },
+    {
+      "id": "a9bb",
+      "testeBafometro": "dfg",
+      "nivelAlcool": "dfg",
+      "valorMulta": "dfg",
+      "dataRecolhimento": "2025-01-06",
+      "nome": "dfg",
+      "cpf": "dfg",
+      "rg": "dfg",
+      "dataNascimento": "2025-01-13",
+      "idCondutor": "",
+      "idOperacao": "",
+      "idVeiculo": "2"
+    },
+    {
+      "id": "27b0",
+      "testeBafometro": "fgdf",
+      "nivelAlcool": "dfg",
+      "valorMulta": "dfg",
+      "dataRecolhimento": "2024-12-31",
+      "nome": "dfg",
+      "cpf": "dfg",
+      "rg": "dfg",
+      "dataNascimento": "2025-01-15",
+      "idCondutor": "",
+      "idOperacao": "",
+      "idVeiculo": "2"
+    },
+    {
+      "id": "4661",
+      "testeBafometro": "FEITO",
+      "nivelAlcool": "0.1",
+      "valorMulta": "432",
+      "dataRecolhimento": "2025-01-14",
+      "nome": "MELISSA SANTOS",
+      "cpf": "12312312311",
+      "rg": "1212121212",
+      "dataNascimento": "2025-01-15",
+      "idCondutor": "",
+      "idOperacao": "321c",
+      "idVeiculo": "1"
+    },
+    {
+      "id": "d428",
+      "testeBafometro": "Feito",
+      "nivelAlcool": "1",
+      "valorMulta": "123",
+      "dataRecolhimento": "",
+      "nome": "BRUNINHO FONSECA",
+      "cpf": "12312312312",
+      "rg": "1212121212",
+      "dataNascimento": "2003-03-29",
+      "idCondutor": "",
+      "idOperacao": "321c",
+      "idVeiculo": "2"
+    }
+  ],
+  "veiculo": [
+    {
+      "id": "1",
+      "placa": "ABC-1234",
+      "marca": "Toyota",
+      "modelo": "Corolla",
+      "numeroCnh": "12345678901",
+      "situacaoVeiculo": "Recolhido",
+      "idCondutor": 1
+    },
+    {
+      "id": "2",
+      "placa": "DEF-5678",
+      "marca": "Ford",
+      "modelo": "Focus",
+      "numeroCnh": "98765432100",
+      "situacaoVeiculo": "Liberado",
+      "idCondutor": 2
+    },
+    {
+      "id": "3",
+      "placa": "GHI-9101",
+      "marca": "Chevrolet",
+      "modelo": "Onix",
+      "numeroCnh": "11122233344",
+      "situacaoVeiculo": "Recolhido",
+      "idCondutor": 3
+    },
+    {
+      "id": "4",
+      "placa": "JKL-1213",
+      "marca": "Volkswagen",
+      "modelo": "Golf",
+      "numeroCnh": "56789012345",
+      "situacaoVeiculo": "Liberado",
+      "idCondutor": 4
+    },
+    {
+      "id": "5",
+      "placa": "MNO-1415",
+      "marca": "Honda",
+      "modelo": "Civic",
+      "numeroCnh": "99887766554",
+      "situacaoVeiculo": "Recolhido",
+      "idCondutor": 5
+    },
+    {
+      "id": "6",
+      "placa": "PQR-1617",
+      "marca": "Hyundai",
+      "modelo": "HB20",
+      "numeroCnh": "33445566778",
+      "situacaoVeiculo": "Liberado",
+      "idCondutor": 6
+    },
+    {
+      "id": "7",
+      "placa": "STU-1819",
+      "marca": "Renault",
+      "modelo": "Kwid",
+      "numeroCnh": "88776655443",
+      "situacaoVeiculo": "Liberado",
+      "idCondutor": 7
+    },
+    {
+      "id": "8",
+      "placa": "VWX-2021",
+      "marca": "Fiat",
+      "modelo": "Toro",
+      "numeroCnh": "55667788990",
+      "situacaoVeiculo": "Recolhido",
+      "idCondutor": 8
+    },
+    {
+      "id": "9",
+      "placa": "YZA-2223",
+      "marca": "Nissan",
+      "modelo": "Kicks",
+      "numeroCnh": "66778899001",
+      "situacaoVeiculo": "Liberado",
+      "idCondutor": 9
+    },
+    {
+      "id": "10",
+      "placa": "BCD-2425",
+      "marca": "Jeep",
+      "modelo": "Renegade",
+      "numeroCnh": "77889900112",
+      "situacaoVeiculo": "Recolhido",
+      "idCondutor": 10
+    },
+    {
+      "id": "11",
+      "placa": "EFG-2627",
+      "marca": "Peugeot",
+      "modelo": "208",
+      "numeroCnh": "88990011223",
+      "situacaoVeiculo": "Liberado",
+      "idCondutor": 11
+    },
+    {
+      "id": "12",
+      "placa": "HIJ-2829",
+      "marca": "Citroën",
+      "modelo": "C4 Cactus",
+      "numeroCnh": "99001122334",
+      "situacaoVeiculo": "Liberado",
+      "idCondutor": 12
+    },
+    {
+      "id": "13",
+      "placa": "KLM-3031",
+      "marca": "Chevrolet",
+      "modelo": "Spin",
+      "numeroCnh": "10111213141",
+      "situacaoVeiculo": "Recolhido",
+      "idCondutor": 13
+    },
+    {
+      "id": "14",
+      "placa": "NOP-3233",
+      "marca": "Volkswagen",
+      "modelo": "T-Cross",
+      "numeroCnh": "12131415161",
+      "situacaoVeiculo": "Liberado",
+      "idCondutor": 14
+    },
+    {
+      "id": "15",
+      "placa": "QRS-3435",
+      "marca": "Mitsubishi",
+      "modelo": "Outlander",
+      "numeroCnh": "14151617181",
+      "situacaoVeiculo": "Recolhido",
+      "idCondutor": 15
+    },
+    {
+      "id": "16",
+      "placa": "ADS-777",
+      "marca": "Toyota",
+      "modelo": "Corolla",
+      "numeroCnh": "12345678900",
+      "situacaoVeiculo": "Apreendido",
+      "idCondutor": ""
+    }
+  ],
+  "condutor": [
+    {
+      "id": "1",
+      "nome": "Carlos Pereira",
+      "cpf": "123.456.789-00",
+      "rg": "12.345.678-9",
+      "dataNascimento": "1990-05-15"
+    },
+    {
+      "id": "2",
+      "nome": "Ana Costa",
+      "cpf": "987.654.321-00",
+      "rg": "98.765.432-1",
+      "dataNascimento": "1985-09-22"
+    },
+    {
+      "id": "3",
+      "nome": "Paulo Oliveira",
+      "cpf": "111.222.333-44",
+      "rg": "11.223.344-5",
+      "dataNascimento": "1978-03-10"
+    },
+    {
+      "id": "4",
+      "nome": "Fernanda Silva",
+      "cpf": "333.444.555-66",
+      "rg": "33.445.566-7",
+      "dataNascimento": "1995-07-12"
+    },
+    {
+      "id": "5",
+      "nome": "João Almeida",
+      "cpf": "777.888.999-00",
+      "rg": "77.889.900-1",
+      "dataNascimento": "1992-11-30"
+    },
+    {
+      "id": "7",
+      "nome": "Lucas Martins",
+      "cpf": "555.666.777-88",
+      "rg": "55.667.778-9",
+      "dataNascimento": "1993-02-18"
+    },
+    {
+      "id": "8",
+      "nome": "Mariana Oliveira",
+      "cpf": "888.999.000-11",
+      "rg": "88.990.001-2",
+      "dataNascimento": "1986-08-14"
+    },
+    {
+      "id": "9",
+      "nome": "Gustavo Rocha",
+      "cpf": "444.555.666-77",
+      "rg": "44.556.667-8",
+      "dataNascimento": "1997-03-22"
+    },
+    {
+      "id": "10",
+      "nome": "Carolina Souza",
+      "cpf": "666.777.888-99",
+      "rg": "66.778.889-0",
+      "dataNascimento": "1990-09-09"
+    },
+    {
+      "id": "11",
+      "nome": "Ricardo Mendes",
+      "cpf": "111.333.555-77",
+      "rg": "11.335.557-9",
+      "dataNascimento": "1982-12-01"
+    },
+    {
+      "id": "12",
+      "nome": "Larissa Lima",
+      "cpf": "999.888.777-66",
+      "rg": "99.887.776-5",
+      "dataNascimento": "1999-01-15"
+    },
+    {
+      "id": "13",
+      "nome": "Felipe Andrade",
+      "cpf": "222.444.666-88",
+      "rg": "22.446.668-7",
+      "dataNascimento": "1987-04-10"
+    },
+    {
+      "id": "14",
+      "nome": "Juliana Ferreira",
+      "cpf": "555.999.333-22",
+      "rg": "55.993.332-1",
+      "dataNascimento": "1994-10-05"
+    },
+    {
+      "id": "15",
+      "nome": "Rodrigo Azevedo",
+      "cpf": "444.222.111-00",
+      "rg": "44.221.110-3",
+      "dataNascimento": "1980-07-20"
+    },
+    {
+      "id": "1",
+      "nome": " dfsdf",
+      "cpf": "sdfds",
+      "rg": "sdf",
+      "dataNascimento": "2025-01-13"
+    }
+  ],
+  "comentario": [
+    {
+      "id": "1",
+      "idUsuario": "1",
+      "mensagem": "Ótima operação!!"
+    },
+    {
+      "id": "",
+      "idUsuario": "",
+      "mensagem": ""
+    }
+  ],
+  "usuario": [
+    {
+      "id": "1",
+      "email": "tivic@gmail.com",
+      "senha": "12345678"
+    }
+  ]
+}
