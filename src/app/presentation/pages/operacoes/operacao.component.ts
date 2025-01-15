@@ -5,22 +5,21 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { ToastrService } from 'ngx-toastr';
+import { AuthUseCase } from '../../../core/usecases/auth/auth.usecase';
 import { OperacoesRepositoryImpl } from '../../../data/repositories/operacao-impl.repository';
 import { Operacao } from '../../../domain/models/operacao.model';
 import { CadastrarComentarioComponent } from '../../components/cadastrar-comentario/cadastrar-comentario.component';
 import { CadastrarOperacaoComponent } from '../../components/cadastrar-operacao/cadastrar-operacao.component';
-import { HeaderComponent } from '../../components/header/header.component';
-import { AuthUseCase } from '../../../core/usecases/auth/auth.usecase';
 
 @Component({
   selector: 'app-operacao',
-  imports: [MatIconModule, MatDialogModule, MatMenuModule, DatePipe, HeaderComponent, ReactiveFormsModule, AsyncPipe],
+  imports: [MatIconModule, MatDialogModule, MatMenuModule, DatePipe, ReactiveFormsModule, AsyncPipe],
   templateUrl: './operacao.component.html',
   styleUrl: './operacao.component.scss'
 })
 export class OperacaoComponent {
   operacoes: Operacao[] = [];
-  filteresOperacoes: Operacao[] = [];
+  filteredOperacoes: Operacao[] = [];
   filterForm: FormGroup = new FormGroup({
     dataInicio: new FormControl(''),
     dataFinal: new FormControl(''),
@@ -71,7 +70,7 @@ export class OperacaoComponent {
   async getOperacoes(): Promise<void> {
     try {
       this.operacoes = await this.operacoesRepository.getOperacao();
-      this.filteresOperacoes = this.operacoes;
+      this.filteredOperacoes = this.operacoes;
     } catch (err) {
       this.toast.success('Erro ao obter operações.');
     }
@@ -104,7 +103,7 @@ export class OperacaoComponent {
     event.stopImmediatePropagation();
     const { dataInicio, dataFinal, nomeResponsavel, local } = this.filterForm.value;
     
-    this.filteresOperacoes = this.operacoes.filter((operacao) => {
+    this.filteredOperacoes = this.operacoes.filter((operacao) => {
       if (dataInicio && this.parseDate(operacao.dataInicio) !== dataInicio) return false;
       if (dataFinal && this.parseDate(operacao.dataFinal) !== dataFinal) return false;
       if (nomeResponsavel && !operacao.nomeResponsavel?.toLowerCase().includes(nomeResponsavel.toLowerCase())) return false;

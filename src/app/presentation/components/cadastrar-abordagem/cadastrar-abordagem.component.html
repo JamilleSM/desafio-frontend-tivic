@@ -9,26 +9,25 @@
       <div class="container-inputs">
         <div class="input-container">
           <label>Teste bafômetro<span>*</span></label>
-          <input
-            type="text"
-            placeholder="Selecione um"
-            formControlName="testeBafometro"
-          />
+          <select formControlName="testeBafometro">
+            <option value="" disabled selected>Selecione...</option>
+            <option value="Feito">Feito</option>
+            <option value="Recusado">Recusado</option>
+          </select>
           <validator controlName="testeBafometro"></validator>
         </div>
         <div class="input-container">
-          <label>Nível de álcool<span>*</span></label>
+          <label>Nível de álcool</label>
           <input
             type="text"
             placeholder="Ex: 0,8"
             formControlName="nivelAlcool"
           />
-          <validator controlName="nivelAlcool"></validator>
         </div>
       </div>
       <div class="container-inputs">
         <div class="input-container">
-          <label>Valor da multa<span>*</span></label>
+          <label>Valor da multa</label>
           <input
             type="text"
             placeholder="Ex: R$ 300,00"
@@ -37,9 +36,8 @@
           <validator controlName="valorMulta"></validator>
         </div>
         <div class="input-container">
-          <label>Data recolhimento<span>*</span></label>
+          <label>Data recolhimento</label>
           <input type="Date" formControlName="dataRecolhimento" />
-          <validator controlName="dataRecolhimento"></validator>
         </div>
       </div>
       <div class="container-inputs">

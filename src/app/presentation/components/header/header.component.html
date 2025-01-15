@@ -11,7 +11,11 @@
     <div class="user-info">
       <mat-icon>settings</mat-icon>
       <mat-icon>notifications</mat-icon>
+      @if (isLoggedIn$ | async) {
       <mat-icon>account_circle</mat-icon>
+      } @else {
+      <mat-icon routerLink="login">login</mat-icon>
+      }
     </div>
   </div>
 </header>

@@ -1,5 +1,4 @@
-<main>
-  <app-header />
+<main class="mb-24">
   <div class="content-operacao">
     <div class="container-operacao">
       <div class="section-options">
@@ -118,7 +117,7 @@
             </tr>
           </thead>
           <tbody>
-            @for (operacao of filteresOperacoes; track operacao) {
+            @for (operacao of filteredOperacoes; track operacao) {
             <tr class="text-left align-middle border-b border-gray-900">
               <td scope="row">
                 @if( isLoggedIn$ | async) {

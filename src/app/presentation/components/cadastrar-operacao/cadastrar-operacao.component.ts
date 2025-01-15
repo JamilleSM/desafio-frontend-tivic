@@ -40,6 +40,12 @@ export class CadastrarOperacaoComponent {
   veiculosRepository = inject(VeiculoRepositoryImpl);
   toast = inject(ToastrService);
 
+  get minDate() {
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 7);
+    return currentDate.toISOString().split('T')[0]; 
+  }
+
   get isUpdate() {
     return this.formGroup.get('id')?.value;
   }

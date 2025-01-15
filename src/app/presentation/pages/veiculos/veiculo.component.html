@@ -1,5 +1,4 @@
-<main>
-  <app-header />
+<main class="mb-24">
   <div class="content-veiculo">
     <div class="container-veiculo">
       <div class="section-options">
@@ -21,34 +20,9 @@
             <mat-menu #menu="matMenu">
               <input
                 type="text"
-                placeholder="Nome do responsável"
-                formControlName="nomeResponsavel"
+                placeholder="Placa"
+                formControlName="placa"
                 mat-menu-item
-                (click)="$event.stopPropagation()"
-              />
-              <input
-                type="text"
-                formControlName="local"
-                placeholder="Local"
-                mat-menu-item
-                (click)="$event.stopPropagation()"
-              />
-              <input
-                type="text"
-                formControlName="dataInicio"
-                placeholder="Data ínicio"
-                mat-menu-item
-                onfocus="(this.type='date')"
-                onblur="(this.type= this.value ? 'date' : 'text')"
-                (click)="$event.stopPropagation()"
-              />
-              <input
-                type="text"
-                formControlName="dataFinal"
-                placeholder="Data final"
-                mat-menu-item
-                onfocus="(this.type='date')"
-                onblur="(this.type= this.value ? 'date' : 'text')"
                 (click)="$event.stopPropagation()"
               />
               <p
@@ -118,7 +92,7 @@
             </tr>
           </thead>
           <tbody>
-            @for (veiculo of veiculos; track veiculo) {
+            @for (veiculo of filteredVeiculos; track veiculo) {
             <tr class="text-left align-middle border-b border-gray-900">
               <td scope="row">
                 @if( isLoggedIn$ | async) {

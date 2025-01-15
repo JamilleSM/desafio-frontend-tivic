@@ -9,7 +9,7 @@
       <div class="container-inputs">
         <div class="input-container">
           <label>Data inicio<span>*</span></label>
-          <input type="Date" formControlName="dataInicio" />
+          <input [min]="minDate" type="Date" formControlName="dataInicio" />
           <validator controlName="dataInicio"></validator>
         </div>
         <div class="input-container">
@@ -19,11 +19,11 @@
         </div>
         <div class="input-container">
           <label>Status<span>*</span></label>
-          <input
-            type="text"
-            placeholder="Selecione o status"
-            formControlName="status"
-          />
+          <select formControlName="status">
+            <option value="" disabled selected>Selecione o status</option>
+            <option value="Em andamento">Em andamento</option>
+            <option value="Concluído">Concluído</option>
+          </select>
           <validator controlName="status"></validator>
         </div>
       </div>
@@ -78,6 +78,11 @@
             <tr class="text-left align-middle">
               <th>
                 <div class="title-icon">
+                  <p>Condutor</p>
+                </div>
+              </th>
+              <th>
+                <div class="title-icon">
                   <p>Nível de álcool</p>
                 </div>
               </th>
@@ -91,25 +96,16 @@
                   <p>Data recolhimento</p>
                 </div>
               </th>
-              <th>
-                <div class="title-icon">
-                  <p>Placa do veículo</p>
-                </div>
-              </th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             @for (abordagem of abordagens; track abordagem) {
             <tr class="text-left align-middle border-b border-gray-900">
+              <td>{{ abordagem.nome }}</td>
               <td>{{ abordagem.nivelAlcool }} mg/L</td>
               <td>{{ abordagem.valorMulta }}</td>
               <td>{{ abordagem.dataRecolhimento | date : "dd/MM/yyyy" }}</td>
-              <td>
-                @for (veiculo of veiculos; track veiculo) {
-                <p>{{ veiculo.placa }}</p>
-                }
-              </td>
               <td>
                 <mat-icon (click)="atualizarAbordagemModal(abordagem)"
                   >edit</mat-icon

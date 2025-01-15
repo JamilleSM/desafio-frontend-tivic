@@ -1,30 +1,26 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, inject, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 import { ToastrService } from 'ngx-toastr';
+import { AuthUseCase } from '../../../core/usecases/auth/auth.usecase';
 import { VeiculoRepositoryImpl } from '../../../data/repositories/veiculo-impl.repository';
 import { Veiculo } from '../../../domain/models/veiculo.model';
 import { CadastrarVeiculoComponent } from '../../components/cadastrar-veiculo/cadastrar-veiculo.component';
-import { HeaderComponent } from '../../components/header/header.component';
-import { AuthUseCase } from '../../../core/usecases/auth/auth.usecase';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-veiculo',
-  imports: [MatIconModule, MatDialogModule, MatMenuModule, HeaderComponent, ReactiveFormsModule, AsyncPipe],
+  imports: [MatIconModule, MatDialogModule, MatMenuModule, ReactiveFormsModule, AsyncPipe],
   templateUrl: './veiculo.component.html',
   styleUrl: './veiculo.component.scss'
 })
 export class VeiculoComponent {
   veiculos: Veiculo[] = [];
-  filteresOperacoes: Veiculo[] = [];
+  filteredVeiculos: Veiculo[] = [];
   filterForm: FormGroup = new FormGroup({
-    dataInicio: new FormControl(''),
-    dataFinal: new FormControl(''),
-    local: new FormControl(''),
-    nomeResponsavel: new FormControl(''),
+    placa: new FormControl(''),
   });
   @ViewChild(MatMenuTrigger) matMenuTrigger: MatMenuTrigger;
 
@@ -61,7 +57,7 @@ export class VeiculoComponent {
   async getVeiculo(): Promise<void> {
     try {
       this.veiculos = await this.veiculosRepository.getVeiculo();
-    //  this.filteresOperacoes = this.veiculos;
+     this.filteredVeiculos = this.veiculos;
     } catch (err) {
       this.toast.success('Erro ao obter operações.');
     }
@@ -91,17 +87,14 @@ export class VeiculoComponent {
   }
 
   applyFilters(event: Event): void {
-    // event.stopImmediatePropagation();
-    // const { dataInicio, dataFinal, nomeResponsavel, local } = this.filterForm.value;
+    event.stopImmediatePropagation();
+    const { placa } = this.filterForm.value;
     
-    // this.filteresOperacoes = this.veiculos.filter((operacao) => {
-    //   if (dataInicio && this.parseDate(operacao.dataInicio) !== dataInicio) return false;
-    //   if (dataFinal && this.parseDate(operacao.dataFinal) !== dataFinal) return false;
-    //   if (nomeResponsavel && !operacao.nomeResponsavel?.toLowerCase().includes(nomeResponsavel.toLowerCase())) return false;
-    //   if (local && !operacao.local?.toLowerCase().includes(local.toLowerCase())) return false;
+    this.filteredVeiculos = this.veiculos.filter((veiculo) => {
+      if (placa && !veiculo.placa?.toLowerCase().includes(placa.toLowerCase())) return false;
       
-    //   return true;
-    // });
+      return true;
+    });
 
     if (this.matMenuTrigger) {
       this.matMenuTrigger.closeMenu();

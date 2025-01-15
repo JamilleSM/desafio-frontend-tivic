@@ -25,15 +25,21 @@
                 a {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
                     gap: 14px;
                     color: #fff;   
                     text-decoration: none;
                     opacity: 0.8;
-                    font-size: 18px;
+                    font-size: 16px;
+                    padding: 8px;
+                    padding-left: 28px;
         
                     mat-icon {
                         color: #fff;
+                    }
+
+                    &.active {
+                        background-color: #303750;
+                        font-weight: 500;
                     }
                 }
             }

@@ -22,9 +22,9 @@ export class CadastrarAbordagemComponent {
   formGroup: FormGroup = new FormGroup({
     id: new FormControl(''),
     testeBafometro: new FormControl('', [Validators.required]),
-    nivelAlcool: new FormControl('', [Validators.required]),
-    valorMulta: new FormControl('', [Validators.required]),
-    dataRecolhimento: new FormControl('', [Validators.required]),
+    nivelAlcool: new FormControl(''),
+    valorMulta: new FormControl(''),
+    dataRecolhimento: new FormControl(''),
     nome: new FormControl('', [Validators.required]),
     cpf: new FormControl('', [Validators.required]),
     rg: new FormControl('', [Validators.required]),
