@@ -51,7 +51,7 @@ OBS: CASO ESTEJA ACESSANDO O PROJETO VIA NETLIFY, É OBRIGATÓRIO RODAR O JSON-S
 #### Passo 1: Navegue até o diretório backend
 
 ```bash
-cd ../backend
+cd backend
 ```
 
 ### Passo 2: Instale as dependências do JSON Server

@@ -8,7 +8,7 @@
 
 # Node
 backend/node_modules
-frontend/node_modules
+node_modules
 npm-debug.log
 yarn-error.log
 
@@ -30,7 +30,7 @@ yarn-error.log
 .history/*
 
 # Miscellaneous
-frontend/.angular
+.angular
 .sass-cache/
 /connect.lock
 /coverage
