@@ -1,59 +1,71 @@
-# DesafioFrontendTivic
+# Configuração do Projeto Angular e JSON Server
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+Este guia descreve os passos necessários para configurar um projeto Angular no diretório `front` e um servidor JSON Server no diretório `back` para desenvolvimento local.
 
-## Development server
+## Estrutura do Projeto
 
-To start a local development server, run:
+/
+├── frontend/ # Diretório para o projeto Angular
+├── backend/ # Diretório para o servidor JSON
+└── README.md # Este arquivo
+
+## Pré-requisitos
+
+Antes de começar, verifique se você possui as seguintes ferramentas instaladas em seu ambiente:
+
+- [Node.js](https://nodejs.org/) (Versão 14 ou superior)
+- [npm](https://www.npmjs.com/) (gerenciador de pacotes do Node.js)
+
+## Configurando o Projeto
+
+### 1. Configuração do Projeto Angular (frontend)
+
+#### Passo 1: Navegue até o diretório `frontend`
+
+```bash
+cd frontend
+```
+
+### Passo 2: Instale as dependências do Angular
+
+#### Execute o comando abaixo para instalar as dependências do projeto Angular:
+
+```bash
+npm install
+```
+
+### Passo 3: Inicie o servidor de desenvolvimento do Angular
+
+#### Execute o comando abaixo para iniciar o servidor de desenvolvimento:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Isso irá iniciar o servidor na URL http://localhost:4200. Você poderá acessar o projeto Angular em seu navegador.
 
-## Code scaffolding
+### 2. Configuração do JSON Server (backend)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+OBS: CASO ESTEJA ACESSANDO O PROJETO VIA NETLIFY, É OBRIGATÓRIO RODAR O JSON-SERVER NA PORTA 3000.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+#### Passo 1: Navegue até o diretório backend
 
 ```bash
-ng generate --help
+cd ../backend
 ```
 
-## Building
+### Passo 2: Instale as dependências do JSON Server
 
-To build the project run:
+#### Execute o seguinte comando para instalar o JSON Server:
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Passo 3: Inicie o JSON Server
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+#### Execute o seguinte comando para iniciar o servidor JSON:
 
 ```bash
-ng test
+npm start
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
